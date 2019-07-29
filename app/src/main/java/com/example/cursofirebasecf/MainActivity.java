@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 bundle.putString(FirebaseAnalytics.Param.ITEM_ID,String.valueOf(view.getId()));
                 mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT,bundle);
-                //Log.d("Mensaje","Se dio click en el boton a");
+                Log.d("Mensaje","Se dio click en el boton a");
             }
         });
 
@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 mFirebaseAnalytics.logEvent("BotonB",bundle);
-                //Log.d("Mensaje","Se dio click en el boton b");
+                Log.d("Mensaje","Se dio click en el boton b");
             }
         });
     }
