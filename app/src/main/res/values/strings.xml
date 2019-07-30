@@ -3,4 +3,10 @@
     <string name="boton_a">Boton A</string>
     <string name="boton_b">Boton B</string>
     <string name="frase">Hola Mundo</string>
+    <string name="correo_electronico">Correo Electronico</string>
+    <string name="contrasenia">Contraseña</string>
+    <string name="login">Iniciar Sesión</string>
+    <string name="logout">Cerrar Sesión</string>
+    <string name="register">Registrarse</string>
+    <string name="state">Estado</string>
 </resources>
