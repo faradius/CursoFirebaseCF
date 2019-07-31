@@ -12,9 +12,13 @@ import android.widget.Toast;
 
 import com.example.cursofirebasecf.R;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
+import com.google.firebase.auth.FirebaseAuthInvalidUserException;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
 
 public class AuthenticationMainActivity extends AppCompatActivity {
@@ -86,6 +90,10 @@ public class AuthenticationMainActivity extends AppCompatActivity {
         }
     }
 
+    private void updateState(String mensaje){
+        estado.setText(mensaje);
+    }
+
     private  void createUser(){
         String email,password;
         if (!checkFields()){
@@ -101,6 +109,15 @@ public class AuthenticationMainActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(),"Se creo el usuario", Toast.LENGTH_SHORT).show();
                     }else {
                         Toast.makeText(getApplicationContext(),"No se pudo crear el usuario", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    if (e instanceof FirebaseAuthUserCollisionException){
+                        updateState("Este correo ya esta en uso");
+                    }else{
+                        updateState(e.getLocalizedMessage());
                     }
                 }
             });
@@ -126,6 +143,17 @@ public class AuthenticationMainActivity extends AppCompatActivity {
 
                     updateState();
                 }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    if (e instanceof FirebaseAuthInvalidCredentialsException){
+                        updateState("Contraseña equivocada");
+                    }else if(e instanceof FirebaseAuthInvalidUserException){
+                        updateState("No existe este usuario");
+                    }else{
+                        updateState(e.getLocalizedMessage());
+                    }
+                }
             });
         }
     }
@@ -149,6 +177,18 @@ public class AuthenticationMainActivity extends AppCompatActivity {
         }
 
         return true;
+    }
+
+    protected void onStart(){
+        super.onStart();
+        mAuth.addAuthStateListener(mAuthStateListener);
+    }
+
+    protected void onStop(){
+        super.onStop();
+        if(mAuthStateListener!=null){
+            mAuth.removeAuthStateListener(mAuthStateListener);
+        }
     }
 
 }
