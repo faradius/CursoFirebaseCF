@@ -1,5 +1,6 @@
 package com.example.cursofirebasecf.Ejemplo2_AgregarDatos;
 
+//Se crea un objeto con sus respectivos atributos y metodos set & get
 public class User {
     String name;
     String city;
