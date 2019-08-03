@@ -70,6 +70,16 @@ public class InsertActivity extends AppCompatActivity {
                 */
 
                 List<User> userList = new ArrayList<>();
+                User user = new User("Jose","Cancun",20);
+                userList.add(user);
+                user = new User("Luis","Mexico",18);
+                userList.add(user);
+                user = new User("Ana","Kawatzin",15);
+                userList.add(user);
+                user = new User("Melisa","Totolapa",12);
+                userList.add(user);
+
+                myref.child("users").child(key).setValue(userList);
 
 
 
