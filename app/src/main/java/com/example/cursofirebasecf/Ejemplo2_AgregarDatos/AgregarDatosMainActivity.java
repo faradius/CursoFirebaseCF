@@ -10,7 +10,7 @@ import com.example.cursofirebasecf.R;
 
 public class AgregarDatosMainActivity extends AppCompatActivity {
     //Se declara el widget que se va a utilizar
-    Button insertarDatos, obtenerDatos;
+    Button insertarDatos, obtenerDatos, listaDatos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +20,7 @@ public class AgregarDatosMainActivity extends AppCompatActivity {
         //Se vincula el widget con la interfaz
         insertarDatos = findViewById(R.id.btnInsertActivity);
         obtenerDatos = findViewById(R.id.btnObtenerDatos);
+        listaDatos = findViewById(R.id.btnListActivity);
 
         //Se crea el metodo Onclick para pasar de un activity a otro
         insertarDatos.setOnClickListener(new View.OnClickListener() {
@@ -35,6 +36,14 @@ public class AgregarDatosMainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent rintent = new Intent(AgregarDatosMainActivity.this, RetrieveActivity.class);
                 startActivity(rintent);
+            }
+        });
+
+        listaDatos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentList = new Intent(AgregarDatosMainActivity.this, ListItemsActivity.class);
+                startActivity(intentList);
             }
         });
     }

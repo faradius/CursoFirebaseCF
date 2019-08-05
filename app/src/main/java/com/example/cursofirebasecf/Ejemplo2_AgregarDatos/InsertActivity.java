@@ -52,6 +52,7 @@ public class InsertActivity extends AppCompatActivity {
                   como su llave, key o ID y al final se agrega el dato del EditText*/
                 //myref.child("ciudad").setValue(value);
 
+
                 /*En esta parte es lo mismo pero aqui ya se utiliza ambos EditText para capturar la llave y el valor */
                 //myref.child(key).setValue(value);
 
@@ -80,7 +81,6 @@ public class InsertActivity extends AppCompatActivity {
                 userList.add(user);
 
                 myref.child("users").child(key).setValue(userList);
-
 
 
                 //Codigo obsoleto que se esta usando en el curso
