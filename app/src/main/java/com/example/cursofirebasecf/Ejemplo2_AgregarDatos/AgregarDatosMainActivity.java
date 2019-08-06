@@ -6,11 +6,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.cursofirebasecf.Ejemplo3_RecyclerViewCRUD.TODOActivity;
 import com.example.cursofirebasecf.R;
 
 public class AgregarDatosMainActivity extends AppCompatActivity {
     //Se declara el widget que se va a utilizar
-    Button insertarDatos, obtenerDatos, listaDatos;
+    Button insertarDatos, obtenerDatos, listaDatos, todoActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +22,7 @@ public class AgregarDatosMainActivity extends AppCompatActivity {
         insertarDatos = findViewById(R.id.btnInsertActivity);
         obtenerDatos = findViewById(R.id.btnObtenerDatos);
         listaDatos = findViewById(R.id.btnListActivity);
+        todoActivity = findViewById(R.id.todoActivity);
 
         //Se crea el metodo Onclick para pasar de un activity a otro
         insertarDatos.setOnClickListener(new View.OnClickListener() {
@@ -44,6 +46,14 @@ public class AgregarDatosMainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intentList = new Intent(AgregarDatosMainActivity.this, ListItemsActivity.class);
                 startActivity(intentList);
+            }
+        });
+
+        todoActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentTODO = new Intent(AgregarDatosMainActivity.this, TODOActivity.class);
+                startActivity(intentTODO);
             }
         });
     }

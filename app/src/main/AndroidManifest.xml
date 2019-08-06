@@ -12,16 +12,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Ejemplo3_RecyclerViewCRUD.TODOActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".Ejemplo2_AgregarDatos.ListItemsActivity" />
         <activity android:name=".Ejemplo2_AgregarDatos.RetrieveActivity" />
         <activity android:name=".Ejemplo2_AgregarDatos.InsertActivity" />
         <activity android:name=".Ejemplo2_AgregarDatos.AgregarDatosMainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".Ejemplo1_Authentication.AuthenticationMainActivity" />
         <activity android:name=".MainActivity" />
