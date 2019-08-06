@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.cursofirebasecf.R;
@@ -32,8 +33,8 @@ public class GrupoAdapter extends RecyclerView.Adapter<GrupoAdapter.ViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
-        viewHolder.id.setText(String.valueOf(grupos.get(position).getId()));
-        viewHolder.grupo.setText(grupos.get(position).getGroupnanme());
+        viewHolder.idtxt.setText(String.valueOf(grupos.get(position).getId()));
+        viewHolder.nametxt.setText(grupos.get(position).getGroupname());
     }
 
     @Override
@@ -41,14 +42,16 @@ public class GrupoAdapter extends RecyclerView.Adapter<GrupoAdapter.ViewHolder>{
         return grupos.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
-        public TextView id, grupo;
+    public static class ViewHolder extends RecyclerView.ViewHolder{
+        public TextView idtxt, nametxt;
+        public ImageView imageViewTrash;
         public CardView cardView;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            id = itemView.findViewById(R.id.idGrupo);
-            grupo = itemView.findViewById(R.id.nameGrupo);
+            idtxt = itemView.findViewById(R.id.idGrupo);
+            nametxt = itemView.findViewById(R.id.nameGrupo);
+            imageViewTrash = itemView.findViewById(R.id.btnTrash);
             cardView = itemView.findViewById(R.id.cardView);
         }
     }

@@ -2,7 +2,7 @@ package com.example.cursofirebasecf.Ejemplo3_RecyclerViewCRUD;
 
 public class Grupo {
     public int id;
-    public String groupnanme;
+    public String groupname;
 
     public Grupo() {
         super();
@@ -10,7 +10,7 @@ public class Grupo {
 
     public Grupo(int id, String groupnanme) {
         this.id = id;
-        this.groupnanme = groupnanme;
+        this.groupname = groupnanme;
     }
 
     public int getId() {
@@ -21,11 +21,11 @@ public class Grupo {
         this.id = id;
     }
 
-    public String getGroupnanme() {
-        return groupnanme;
+    public String getGroupname() {
+        return groupname;
     }
 
-    public void setGroupnanme(String groupnanme) {
-        this.groupnanme = groupnanme;
+    public void setGroupname(String groupname) {
+        this.groupname = groupname;
     }
 }

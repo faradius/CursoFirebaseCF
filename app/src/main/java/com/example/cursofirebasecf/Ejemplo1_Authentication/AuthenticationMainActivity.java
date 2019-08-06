@@ -56,7 +56,7 @@ public class AuthenticationMainActivity extends AppCompatActivity {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 //Se valida la autenticacion de un usuario para saber si esta logueado o no
                 if(user!=null){
-                    Log.d(TAG,"Esta logeado: " + user.getUid()); //Se obtiene su id del usuario
+                    Log.d(TAG,"Esta logeado: " + user.getUid()); //Se obtiene su idtxt del usuario
                 }else{
                    Log.d(TAG, "No esta logeado");
                 }
